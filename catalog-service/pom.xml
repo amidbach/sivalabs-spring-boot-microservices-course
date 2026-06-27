@@ -6,12 +6,12 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.1.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sivalabs</groupId>
 	<artifactId>catalog-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
+	<name>Catalog Service</name>
 	<description/>
 	<url/>
 	<licenses>
@@ -99,6 +99,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-testcontainers</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>testcontainers</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
