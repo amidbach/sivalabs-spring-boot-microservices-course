@@ -11,8 +11,8 @@
 		<!-- One blank line before class body closure brace  -->
 		<setting id="org.eclipse.jdt.core.formatter.blank_lines_after_last_class_body_declaration" value="1"/>
 		<!-- Controls the number of blank lines inserted between method declarations -->
-		<setting id="org.eclipse.jdt.core.formatter.blank_lines_before_method" value="2"/>
+		<setting id="org.eclipse.jdt.core.formatter.blank_lines_before_method" value="1"/>
 		<!-- Keeps existing blank lines up to this limit (prevents collapsing them) -->
-		<setting id="org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve" value="1"/>
+		<setting id="org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve" value="2"/>
 	</profile>
 </profiles>
