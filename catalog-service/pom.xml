@@ -183,11 +183,6 @@
 <!-- -->
 						<trimTrailingWhitespace />
 						<formatAnnotations />
-						<!-- Enforce tab indentation -->
-						<indent>
-							<tabs>true</tabs>
-							<spacesPerTab>4</spacesPerTab>
-						</indent>
 <!--
 						<replaceRegex>
 							<name>reduce-blank-lines</name>
@@ -199,6 +194,11 @@
 							<version>4.32</version> <!-- Use 4.30+ for Java 21 compatibility -->
 							<file>${project.basedir}/eclipse-formatter.xml</file>
 						</eclipse>
+						<!-- Enforce tab indentation -->
+						<indent>
+							<tabs>true</tabs>
+							<spacesPerTab>4</spacesPerTab>
+						</indent>
 					</java>
 				</configuration>
 				<executions>
