@@ -3,13 +3,12 @@ package com.sivalabs.catalog_service.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.sivalabs.catalog_service.TestcontainersConfiguration;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
-
-import java.util.List;
 
 @DataJpaTest
 @Import(TestcontainersConfiguration.class)
@@ -26,4 +25,5 @@ class ProductRepositoryTest {
 		List<ProductEntity> products = productRepository.findAll();
 		assertThat(products).hasSize(13);
 	}
+
 }
