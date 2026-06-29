@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
 @DataJpaTest
 @Import(TestcontainersConfiguration.class)
+@Sql("/test-data.sql")
 class ProductRepositoryTest {
 
 	@Autowired
@@ -22,6 +24,6 @@ class ProductRepositoryTest {
 	@Test
 	void shouldGetAllProducts() {
 		List<ProductEntity> products = productRepository.findAll();
-		assertThat(products).hasSize(15);
+		assertThat(products).hasSize(13);
 	}
 }
