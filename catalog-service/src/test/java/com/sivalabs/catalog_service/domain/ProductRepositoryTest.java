@@ -2,18 +2,19 @@ package com.sivalabs.catalog_service.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.sivalabs.catalog_service.TestcontainersConfiguration;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
 
-@DataJpaTest
-@Import(TestcontainersConfiguration.class)
+@DataJpaTest(properties = {
+		"spring.test.database.replace=none",
+		"spring.datasource.url=jdbc:tc:postgresql:18-alpine:///db",
+})
+// @Import(TestcontainersConfiguration.class)
 @Sql("/test-data.sql")
 @Slf4j( // spotless:off
 		access = AccessLevel.PROTECTED,     // <-- The generated 'log' field is protected, allowing subclasses to use it directly
