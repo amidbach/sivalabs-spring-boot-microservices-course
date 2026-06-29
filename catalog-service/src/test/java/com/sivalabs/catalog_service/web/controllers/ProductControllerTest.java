@@ -7,10 +7,11 @@ import static org.hamcrest.Matchers.is;
 
 import com.sivalabs.catalog_service.AbstractIT;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Test;
 
 public class ProductControllerTest extends AbstractIT {
 
-	// @Test
+	@Test
 	void shouldReturnProducts() {
 		given().contentType(ContentType.JSON)
 				.when()
