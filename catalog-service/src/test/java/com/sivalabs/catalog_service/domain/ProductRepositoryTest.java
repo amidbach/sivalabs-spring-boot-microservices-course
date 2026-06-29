@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.sivalabs.catalog_service.TestcontainersConfiguration;
 import java.util.List;
+import lombok.AccessLevel;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -13,6 +15,7 @@ import org.springframework.test.context.jdbc.Sql;
 @DataJpaTest
 @Import(TestcontainersConfiguration.class)
 @Sql("/test-data.sql")
+@Slf4j(access = AccessLevel.PROTECTED) // <-- The generated 'log' field is protected, allowing subclasses to access
 class ProductRepositoryTest {
 
 	@Autowired
@@ -23,7 +26,14 @@ class ProductRepositoryTest {
 	@Test
 	void shouldGetAllProducts() {
 		List<ProductEntity> products = productRepository.findAll();
-		assertThat(products).hasSize(13);
+		int expectedProducts = 13;
+		int productsFound = products.size();
+		log.debug(
+				"Next Error Assertion --> Expected {} 'Product' entities: {} {} were found.",
+				expectedProducts,
+				(expectedProducts != productsFound ? "BUT" : "AND"),
+				productsFound);
+		assertThat(products).hasSize(expectedProducts);
 	}
 
 }
