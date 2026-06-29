@@ -1,6 +1,5 @@
 package com.sivalabs.catalog_service.web.controllers;
 
-import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -8,7 +7,9 @@ import static org.hamcrest.Matchers.is;
 import com.sivalabs.catalog_service.AbstractIT;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.jdbc.Sql;
 
+@Sql("/test-data.sql")
 public class ProductControllerTest extends AbstractIT {
 
 	@Test
@@ -19,7 +20,7 @@ public class ProductControllerTest extends AbstractIT {
 				.then()
 				.statusCode(200)
 				.body("data", hasSize(10))
-				.body("totalElements", is(15))
+				.body("totalElements", is(13))
 				.body("pageNumber", is(1))
 				.body("totalPages", is(2))
 				.body("isFirst", is(true))
