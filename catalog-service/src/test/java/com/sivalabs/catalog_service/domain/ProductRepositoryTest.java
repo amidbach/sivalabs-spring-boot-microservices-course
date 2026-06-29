@@ -15,7 +15,10 @@ import org.springframework.test.context.jdbc.Sql;
 @DataJpaTest
 @Import(TestcontainersConfiguration.class)
 @Sql("/test-data.sql")
-@Slf4j(access = AccessLevel.PROTECTED) // <-- The generated 'log' field is protected, allowing subclasses to access
+@Slf4j( // spotless:off
+		access = AccessLevel.PROTECTED,     // <-- The generated 'log' field is protected, allowing subclasses to use it directly
+		topic = "[catalog-service]"         // <-- By default, the logger name (or topic) is the fully qualified name of the class
+)                                           //     Why use a custom topic? ==> Log Aggregation, Filtering, etc.     // spotless:on
 class ProductRepositoryTest {
 
 	@Autowired

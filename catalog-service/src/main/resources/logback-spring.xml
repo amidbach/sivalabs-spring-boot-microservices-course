@@ -42,4 +42,10 @@
         <appender-ref ref="Console" />
     </logger>
 
+    <!-- LOG topic "[catalog-service]*" at DEBUG level -->
+    <logger name="[catalog-service]" level="debug" additivity="false">
+        <appender-ref ref="RollingFile" />
+        <appender-ref ref="Console" />
+    </logger>
+
 </configuration>
