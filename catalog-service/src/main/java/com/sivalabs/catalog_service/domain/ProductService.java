@@ -23,6 +23,8 @@ public class ProductService {
 		Sort sort = Sort.by("name").ascending();
 		pageNo = pageNo <= 1 ? 0 : pageNo - 1;
 		Pageable pageable = PageRequest.of(pageNo, properties.pageSize(), sort);
+		// TODO (bachir.bachir): Study <spotless:palantirJavaFormat> to never join
+		// already wrapped lines...
 		Page<Product> productsPage = productRepository.findAll(pageable).map(ProductMapper::toProduct);
 
 		return new PagedResult<>(
